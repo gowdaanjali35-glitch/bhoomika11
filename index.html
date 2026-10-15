@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Layer &amp; Luxe | Premium Tiramisu Patisserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--espresso:#1f120c;--roast:#3a2216;--cocoa:#5a3a28;--beige:#e9dcc6;--cream:#f3eadb;--ivory:#fbf7ef;--gold:#b8935a;--gold-l:#d9bc85;
+--bg:var(--ivory);--bg2:var(--cream);--card:#fffdf8;--ink:#2a1810;--mute:#6f5a4b;--line:rgba(90,58,40,.18);
+--serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif;--sans:"Jost","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a0f0a;--bg2:#24150e;--card:#2c1a11;--ink:#f3eadb;--mute:#bfa992;--line:rgba(217,188,133,.2)}}
+:root[data-theme="dark"]{--bg:#1a0f0a;--bg2:#24150e;--card:#2c1a11;--ink:#f3eadb;--mute:#bfa992;--line:rgba(217,188,133,.2)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--espresso);z-index:60}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0;letter-spacing:-.01em}
+p{margin:0}a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+section{padding:clamp(72px,11vw,150px) 0}
+.btn{display:inline-flex;align-items:center;gap:10px;font:500 15px var(--sans);letter-spacing:.06em;padding:16px 34px;border-radius:999px;border:1px solid var(--gold);cursor:pointer;transition:.35s;position:relative;overflow:hidden}
+.btn.gold{background:linear-gradient(120deg,#c9a46a,#a9824a 55%,#d9bc85);color:#1f120c;border-color:transparent;box-shadow:0 10px 30px -10px rgba(184,147,90,.7)}
+.btn.gold::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s}
+.btn.gold:hover::after{transform:translateX(120%)}.btn.gold:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(184,147,90,.85)}
+.btn.line{color:var(--ivory)}.btn.line:hover{background:rgba(217,188,133,.12)}
+.btn.sm{padding:11px 24px;font-size:14px}
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(31,18,12,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,188,133,.18)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font:500 26px var(--serif);color:var(--ivory);letter-spacing:.02em}.logo i{color:var(--gold-l);font-weight:400}
+.links{display:flex;gap:38px;color:var(--beige);font-size:15px;letter-spacing:.04em}
+.links a{position:relative;padding:4px 0}.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold-l);transform:scaleX(0);transform-origin:left;transition:.35s}
+.links a:hover::after{transform:scaleX(1)}
+/* hero */
+.hero{background:radial-gradient(60% 70% at 72% 52%,#5b3623 0%,#2c1a11 52%,#1f120c 100%);color:var(--ivory);padding:clamp(48px,8vw,100px) 0 clamp(64px,9vw,120px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(46px,7.2vw,96px);font-weight:400}
+.hero p.lead{color:var(--beige);max-width:30em;margin:28px 0 40px;font-size:18px}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero .note{margin-top:44px;padding-top:24px;border-top:1px solid rgba(217,188,133,.25);max-width:30em;font:italic 400 20px/1.4 var(--serif);color:var(--gold-l)}
+.stage{position:relative}.stage .slice{filter:drop-shadow(0 40px 50px rgba(0,0,0,.55))}
+.stage::before{content:"";position:absolute;inset:8% 4%;border:1px solid rgba(217,188,133,.28);border-radius:50%;transform:rotate(-8deg)}
+.slice svg{width:100%;height:auto;display:block;overflow:visible}
+.anim .ly{animation:drop .95s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*.2s + .25s)}
+@keyframes drop{from{opacity:0;transform:translateY(-46px)}}
+.dust{position:absolute;inset:0;pointer-events:none}
+/* headings */
+.head{max-width:640px;margin-bottom:clamp(40px,6vw,76px)}
+.head h2{font-size:clamp(38px,5vw,64px)}.head p{color:var(--mute);margin-top:18px}
+/* signatures */
+.sig{background:var(--bg2)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:200px 200px 18px 18px;padding:34px 30px 38px;text-align:center;transition:transform .5s,box-shadow .5s}
+.sc:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(58,34,22,.45)}
+.sc .art{background:radial-gradient(circle at 50% 60%,#5b3623,#2c1a11);border-radius:50%;aspect-ratio:1;display:grid;place-items:center;margin:0 auto 28px;width:86%;padding:8%}
+.sc h3{font-size:34px}.sc p{color:var(--mute);margin:12px auto 20px;max-width:21em;font-size:16px}
+.price{font:italic 500 24px var(--serif);color:var(--gold)}
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,120px);align-items:center}
+.story h2{font-size:clamp(38px,5vw,64px);margin-bottom:28px}.story p{color:var(--mute);margin-bottom:18px;max-width:34em}
+.story q{display:block;font:italic 400 28px/1.35 var(--serif);color:var(--ink);margin-top:34px;padding-left:24px;border-left:2px solid var(--gold);quotes:none}
+.anat{border-top:1px solid var(--line)}
+.anat div{display:grid;grid-template-columns:78px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--line);align-items:center}
+.anat span{height:34px;border-radius:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) calc(var(--d)*.22s)}
+.anat.in span{transform:scaleX(1)}
+.anat h3{font-size:26px}.anat p{margin:2px 0 0;font-size:15px}
+/* menu */
+.menu{background:var(--espresso);color:var(--ivory)}
+.menu .head p{color:var(--beige)}
+.grid-m{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mc{border:1px solid rgba(217,188,133,.28);border-radius:6px;padding:34px 30px;display:flex;flex-direction:column;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,0));transition:.4s}
+.mc:hover{border-color:var(--gold-l);background:rgba(217,188,133,.07)}
+.mc .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.mc h3{font-size:30px}.mc .price{color:var(--gold-l);font-size:26px}
+.mc p{color:var(--beige);opacity:.85;font-size:15px;margin:12px 0 26px;flex:1}
+.mc button{align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--gold-l);color:var(--gold-l);font:400 15px var(--sans);padding:0 0 3px;cursor:pointer;letter-spacing:.04em}
+.mc button:hover{color:var(--ivory);border-color:var(--ivory)}
+/* reviews */
+.rev .grid3{gap:36px}
+.rv{padding:8px 0 0;border-top:1px solid var(--gold)}
+.rv .st{color:var(--gold);letter-spacing:.2em;margin:22px 0 14px}
+.rv p{font:400 25px/1.4 var(--serif)}.rv small{display:block;color:var(--mute);margin-top:22px;font-size:15px}
+/* band + footer */
+.band{background:linear-gradient(120deg,#2c1a11,#4a2c1c);color:var(--ivory);text-align:center;padding:clamp(70px,10vw,130px) 0}
+.band h2{font-size:clamp(38px,6vw,76px);margin-bottom:34px}
+footer{background:var(--espresso);color:var(--beige);padding:56px 0 calc(40px + env(safe-area-inset-bottom,0px));font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+footer small{opacity:.65;display:block;margin-top:8px}
+/* order dialog */
+dialog{border:1px solid var(--gold);border-radius:14px;padding:38px;width:min(460px,92vw);background:var(--ivory);color:#2a1810;box-shadow:0 40px 100px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(20,10,6,.7);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .45s cubic-bezier(.2,.8,.2,1)}@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}}
+dialog h3{font-size:36px;margin-bottom:6px}dialog p.s{color:#6f5a4b;margin-bottom:22px;font-size:15px}
+dialog label{display:block;font-size:14px;margin-bottom:14px;color:#6f5a4b}
+dialog input,dialog select{width:100%;margin-top:6px;padding:13px 14px;border:1px solid rgba(90,58,40,.3);border-radius:8px;background:#fff;font:400 16px var(--sans);color:#2a1810}
+dialog .acts{display:flex;gap:12px;margin-top:22px;align-items:center}
+dialog .x{background:none;border:0;color:#6f5a4b;font:400 15px var(--sans);cursor:pointer;padding:10px}
+@media(max-width:960px){.grid3,.grid-m{grid-template-columns:1fr 1fr}.hero .wrap,.story .wrap{grid-template-columns:1fr}.stage{max-width:560px;margin:0 auto}}
+@media(max-width:700px){.links{display:none}.grid3,.grid-m{grid-template-columns:1fr}.sc{border-radius:140px 140px 18px 18px}.hero .cta .btn{flex:1;justify-content:center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.anat span{transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Layer <i>&amp;</i> Luxe</a>
+  <div class="links"><a href="#signatures">Signatures</a><a href="#story">Our story</a><a href="#menu">Menu</a><a href="#reviews">Reviews</a></div>
+  <button class="btn gold sm" data-order>Order now</button>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <h1>Tiramisu, built one layer at a time.</h1>
+    <p class="lead">Hand-whipped mascarpone, espresso-soaked savoiardi and a veil of fine cocoa, set overnight in our patisserie kitchen and delivered chilled.</p>
+    <div class="cta"><button class="btn gold" data-order>Order now</button><a class="btn line" href="#menu">View the menu</a></div>
+    <p class="note">Made fresh each morning. Never frozen, never rushed.</p>
+  </div>
+  <div class="stage"><canvas class="dust" id="dust"></canvas><div class="slice anim" data-v="classico"></div></div>
+</div></header>
+
+<section class="sig" id="signatures"><div class="wrap">
+  <div class="head"><h2>Three signatures, each with its own character.</h2><p>Our classic stays true to Treviso. The others are the desserts our regulars ask for by name.</p></div>
+  <div class="grid3">
+    <article class="sc"><div class="art"><div class="slice" data-v="classico"></div></div><h3>Il Classico</h3><p>Vanilla-bean mascarpone over double-soaked espresso savoiardi, finished with dark cocoa.</p><span class="price">$9 a slice</span></article>
+    <article class="sc"><div class="art"><div class="slice" data-v="pistachio"></div></div><h3>Pistacchio</h3><p>Sicilian pistachio cream, a little white chocolate and a crush of toasted nuts.</p><span class="price">$11 a slice</span></article>
+    <article class="sc"><div class="art"><div class="slice" data-v="caramel"></div></div><h3>Caramello Salato</h3><p>Salted caramel ribbons through mascarpone, a drizzle of gold on top.</p><span class="price">$11 a slice</span></article>
+  </div>
+</div></section>
+
+<section class="story" id="story"><div class="wrap">
+  <div>
+    <h2>A patisserie that treats a classic with patience.</h2>
+    <p>Layer &amp; Luxe began with one recipe and one rule: nothing goes into the dish that we would not eat on its own. Our mascarpone is whipped by hand, our coffee is pulled fresh, and every tray rests for twelve hours before it is cut.</p>
+    <p>The result is a tiramisu that holds its shape, melts on the tongue and tastes like the last spoonful of a good dinner.</p>
+    <q>Four layers. Twelve hours. No shortcuts.</q>
+  </div>
+  <div class="anat" id="anat">
+    <div style="--c:#4a2c1c;--d:0"><span></span><div style="display:block;padding:0;border:0"><h3>Cocoa</h3><p>Dusted by hand just before it leaves the kitchen.</p></div></div>
+    <div style="--c:#f1e3c6;--d:1"><span style="outline:1px solid var(--line)"></span><div style="display:block;padding:0;border:0"><h3>Mascarpone</h3><p>Light, silky and only lightly sweetened.</p></div></div>
+    <div style="--c:#7a4a2e;--d:2"><span></span><div style="display:block;padding:0;border:0"><h3>Savoiardi</h3><p>Dipped in fresh espresso and a splash of Marsala.</p></div></div>
+    <div style="--c:var(--gold);--d:3"><span></span><div style="display:block;padding:0;border:0"><h3>Gold leaf</h3><p>A single flake on our whole cakes and gift boxes.</p></div></div>
+  </div>
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <div class="head"><h2>The menu</h2><p>Everything is made in small batches each morning. Order by noon for same-day delivery.</p></div>
+  <div class="grid-m">
+    <article class="mc"><div class="row"><h3>Il Classico slice</h3><span class="price">$9</span></div><p>Our original, with mascarpone, espresso and cocoa.</p><button data-order="Il Classico slice">Add to order</button></article>
+    <article class="mc"><div class="row"><h3>Pistacchio slice</h3><span class="price">$11</span></div><p>Pistachio cream and toasted nut crumble.</p><button data-order="Pistacchio slice">Add to order</button></article>
+    <article class="mc"><div class="row"><h3>Caramello slice</h3><span class="price">$11</span></div><p>Salted caramel, mascarpone and a gold drizzle.</p><button data-order="Caramello slice">Add to order</button></article>
+    <article class="mc"><div class="row"><h3>Tiramisu cup</h3><span class="price">$8</span></div><p>Single-serve glass jar, easy to carry and share.</p><button data-order="Tiramisu cup">Add to order</button></article>
+    <article class="mc"><div class="row"><h3>Whole cake</h3><span class="price">$64</span></div><p>Serves eight, finished with gold leaf.</p><button data-order="Whole cake">Add to order</button></article>
+    <article class="mc"><div class="row"><h3>Gift box of four</h3><span class="price">$42</span></div><p>Our three signatures plus a seasonal slice, boxed with ribbon.</p><button data-order="Gift box of four">Add to order</button></article>
+  </div>
+</div></section>
+
+<section class="rev" id="reviews"><div class="wrap">
+  <div class="head"><h2>Kind words from our table.</h2></div>
+  <div class="grid3">
+    <figure class="rv" style="margin:0"><div class="st" aria-label="5 stars">★★★★★</div><p>The first tiramisu I have had that was not soggy. Every layer was distinct and the cream was weightless.</p><small>Isabella R., birthday cake order</small></figure>
+    <figure class="rv" style="margin:0"><div class="st" aria-label="5 stars">★★★★★</div><p>We served the Pistacchio at our dinner party and the plates came back clean. Guests are still asking where it was from.</p><small>Marcus T., gift box order</small></figure>
+    <figure class="rv" style="margin:0"><div class="st" aria-label="5 stars">★★★★★</div><p>It arrived cold, perfectly set and beautifully boxed. Worth every cent as a gift.</p><small>Anaïs L., regular customer</small></figure>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap"><h2>Your slice is waiting.</h2><button class="btn gold" data-order>Order now</button></div></section>
+
+<footer><div class="wrap">
+  <div><span class="logo">Layer <i>&amp;</i> Luxe</span><small>Premium tiramisu, made fresh each morning.</small></div>
+  <div>Open daily, 9am to 8pm<small>hello@layerandluxe.example</small></div>
+</div></footer>
+
+<dialog id="dlg"><form method="dialog" id="f">
+  <h3>Place your order</h3><p class="s">Tell us what you would like and we will confirm delivery details.</p>
+  <label>Item<select id="item"><option>Il Classico slice</option><option>Pistacchio slice</option><option>Caramello slice</option><option>Tiramisu cup</option><option>Whole cake</option><option>Gift box of four</option></select></label>
+  <label>Quantity<input id="qty" type="number" min="1" max="20" value="1"></label>
+  <label>Your name<input id="nm" required autocomplete="name"></label>
+  <label>Email or phone<input id="ct" required autocomplete="email"></label>
+  <div class="acts"><button class="btn gold sm" type="submit" id="go">Confirm order</button><button class="x" type="button" id="cx">Cancel</button></div>
+</form><div id="ok" hidden><h3>Order received</h3><p class="s" id="okt"></p><button class="btn gold sm" type="button" id="done">Close</button></div></dialog>
+
+<script>
+const V={classico:{top:'#4a2c1c',dot:'#8b5a3c',n:90},pistachio:{top:'#b3bd7a',dot:'#5f7a2e',n:70},caramel:{top:'#c9954a',dot:'#f3d9a0',n:30,drip:1}};
+function slice(el){
+  const o=V[el.dataset.v],u=Math.random().toString(36).slice(2,6);
+  const L=[[110,126,'t'],[126,162,'c'],[162,186,'s'],[186,222,'c'],[222,248,'s']];
+  const F=t=>t=='c'?`url(#c${u})`:t=='s'?`url(#s${u})`:o.top;
+  let g='';
+  L.forEach(([a,b,t],i)=>{
+    const sd=`300,${a} 370,${a-40} 370,${b-40} 300,${b}`;
+    g+=`<g class="ly" style="--i:${4-i}"><rect x="60" y="${a}" width="240" height="${b-a}" fill="${F(t)}"/>${t=='s'?`<rect x="60" y="${a}" width="240" height="${b-a}" fill="url(#p${u})"/>`:''}<polygon points="${sd}" fill="${F(t)}"/><polygon points="${sd}" fill="#000" opacity=".24"/></g>`;
+  });
+  let d='';
+  for(let i=0;i<o.n;i++){const t=Math.random(),v=Math.random();d+=`<circle cx="${(60+70*v+240*t).toFixed(1)}" cy="${(110-40*v).toFixed(1)}" r="${(Math.random()*1.8+.6).toFixed(1)}" fill="${o.dot}" opacity="${(Math.random()*.5+.35).toFixed(2)}"/>`}
+  if(o.drip)d+=`<path d="M92 104 Q130 92 160 100 T230 92 T300 98" fill="none" stroke="#f6dc9e" stroke-width="4" stroke-linecap="round" opacity=".9"/><path d="M130 86 Q170 78 210 84 T290 82" fill="none" stroke="#f6dc9e" stroke-width="3" stroke-linecap="round" opacity=".8"/>`;
+  d+=`<polygon points="205,92 218,86 224,95 212,99" fill="#d9bc85"/><polygon points="205,92 218,86 224,95 212,99" fill="#fff" opacity=".25"/>`;
+  el.innerHTML=`<svg viewBox="0 0 430 300" role="img" aria-label="A slice of layered tiramisu"><defs>
+  <linearGradient id="c${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf1d9"/><stop offset="1" stop-color="#e6d0a2"/></linearGradient>
+  <linearGradient id="s${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8f5a38"/><stop offset="1" stop-color="#5e3a22"/></linearGradient>
+  <linearGradient id="t${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${o.top}"/><stop offset="1" stop-color="${o.top}" stop-opacity=".78"/></linearGradient>
+  <radialGradient id="pl${u}" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#e5d6bb"/></radialGradient>
+  <pattern id="p${u}" width="14" height="10" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.4" fill="#2d170b" opacity=".5"/><circle cx="10" cy="7" r="1" fill="#f1e3c6" opacity=".35"/></pattern></defs>
+  <ellipse cx="215" cy="268" rx="196" ry="20" fill="#000" opacity=".25"/>
+  <ellipse cx="215" cy="256" rx="196" ry="26" fill="url(#pl${u})" stroke="#d9bc85" stroke-width="2"/>
+  <ellipse cx="215" cy="254" rx="150" ry="17" fill="none" stroke="#d9bc85" stroke-width=".8" opacity=".6"/>
+  ${g}<g class="ly" style="--i:5"><polygon points="60,110 300,110 370,70 130,70" fill="url(#t${u})"/>${d}</g></svg>`;
+}
+document.querySelectorAll('.slice').forEach(slice);
+
+/* cocoa dust drifting in hero */
+(()=>{const c=document.getElementById('dust'),x=c.getContext('2d');if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+let w,h,P=[];const R=()=>{w=c.width=c.offsetWidth;h=c.height=c.offsetHeight};R();addEventListener('resize',R);
+for(let i=0;i<46;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.4,s:Math.random()*.0004+.0001,a:Math.random()*.5+.2});
+(function f(){x.clearRect(0,0,w,h);P.forEach(p=>{p.y+=p.s*8;p.x+=Math.sin(p.y*9)*.0004;if(p.y>1){p.y=0;p.x=Math.random()}x.fillStyle=`rgba(217,188,133,${p.a})`;x.beginPath();x.arc(p.x*w,p.y*h,p.r,0,7);x.fill()});requestAnimationFrame(f)})()})();
+
+/* anatomy layers reveal once in view */
+new IntersectionObserver((e,o)=>e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('in');o.disconnect()}}),{threshold:.4}).observe(document.getElementById('anat'));
+
+/* order dialog */
+const dlg=document.getElementById('dlg'),f=document.getElementById('f'),ok=document.getElementById('ok');
+function open(item){f.hidden=false;ok.hidden=true;if(item)document.getElementById('item').value=item;dlg.showModal()}
+document.querySelectorAll('[data-order]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.order)));
+document.getElementById('cx').onclick=()=>dlg.close();
+document.getElementById('done').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+f.addEventListener('submit',e=>{e.preventDefault();
+  document.getElementById('okt').textContent=`Thank you, ${document.getElementById('nm').value}. ${document.getElementById('qty').value} x ${document.getElementById('item').value} is reserved. We will contact you to confirm delivery.`;
+  f.hidden=true;ok.hidden=false;f.reset()});
+</script>
+</body>
+</html>
